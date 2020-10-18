@@ -52,7 +52,7 @@ local transparency_sets = {
 br = SimpleForm('config', translate('Argon Config'), translate('Here you can set the blur and transparency of the login page of argon theme, and manage the background pictures and videos.[Chrome is recommended]'))
 br.reset = false
 br.submit = false
-s = br:section(SimpleSection) 
+s = br:section(SimpleSection)
 
 o = s:option(ListValue, 'mode', translate('Theme mode'))
 o:value('normal', translate('Follow System'))
@@ -62,7 +62,7 @@ o.default = mode
 o.rmempty = false
 o.description = translate('You can choose Theme color mode here')
 
-o = s:option(Value, 'primary', translate('[Light mode] Primary Color'), translate('A HEX Color ; ( Default: #5e72e4 )'))
+o = s:option(Value, 'primary', translate('[Light mode] Primary Color'), translate('A HEX Color ; ( Default: #f90 )'))
 o.default = primary
 o.datatype = ufloat
 o.rmempty = false
@@ -82,7 +82,7 @@ o.default = blur_radius
 o.datatype = ufloat
 o.rmempty = false
 
-o = s:option(Value, 'dark_primary', translate('[Dark mode] Primary Color'), translate('A HEX Color ; ( Default: #483d8b )'))
+o = s:option(Value, 'dark_primary', translate('[Dark mode] Primary Color'), translate('A HEX Color ; ( Default: #be904c )'))
 o.default = dark_primary
 o.datatype = ufloat
 o.rmempty = false
@@ -108,7 +108,7 @@ function br.handle(self, state, data)
         nxfs.writefile('/tmp/aaa', data)
         for key, value in pairs(data) do
             uci:set('argon','@global[0]',key,value)
-        end 
+        end
         uci:commit('argon')
     end
     return true
